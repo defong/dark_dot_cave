@@ -4,12 +4,10 @@ Description=playground/playground.pod
 [Pod]
 PodName=playground
 
-
-
 [Install]
 WantedBy=default.target
 
 [Service]
 Restart=always
 ExecStartPre=/bin/sleep 30
-ExecStartPost=%h/.config/containers/systemd/ai/check_containers.sh playgroundgit
+
