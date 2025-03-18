@@ -1,0 +1,15 @@
+appConfig:
+  theme: one-dark  # Set your theme to 'one-dark', but you can change it to others.
+  layout: auto      # Auto layout for widgets, or you can set to 'grid'.
+
+pages:
+  - name: "ThinkOink!"
+    icon: "fas fa-server"  # The icon shown for this page
+
+dockerServiceDiscovery:
+  enable: true
+  host: "host.containers.internal"  # Podman uses this to discover containers
+
+# Optional: Authentication if you want to secure your dashboard
+auth:
+  enable: false  # Set to 'true' to enable login
