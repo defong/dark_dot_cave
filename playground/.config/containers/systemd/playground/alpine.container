@@ -1,0 +1,16 @@
+[Unit]
+Description=playground/alpine.container
+
+[Container]
+Pod=playground.pod
+Image=docker.io/alpine
+ContainerName=alpine
+Exec=sleep 1000
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Restart=always
+
+

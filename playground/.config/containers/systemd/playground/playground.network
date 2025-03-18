@@ -1,0 +1,10 @@
+[Unit]
+Description=playground/playground.network
+
+[Network]
+Internal=false
+
+[Install]
+WantedBy=default.target
+
+
