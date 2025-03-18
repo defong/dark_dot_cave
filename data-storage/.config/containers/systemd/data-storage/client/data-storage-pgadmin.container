@@ -1,0 +1,25 @@
+# podman run --pod=data-storage \
+# -e 'PGADMIN_DEFAULT_EMAIL=postgres@example.com' \
+# -e 'PGADMIN_DEFAULT_PASSWORD=postgres' \
+# --name pgadmin \
+# -d dpage/pgadmin4:latest
+
+
+[Unit]
+Description=data-storage/client/data-storage-pgadmin.container
+
+[Container]
+Pod=data-storage.pod
+Image=docker.io/dpage/pgadmin4:latest
+ContainerName=data-storage-pgadmin
+Environment=PGADMIN_DEFAULT_EMAIL=postgres@example.com
+Environment=PGADMIN_DEFAULT_PASSWORD=postgres
+Environment=PGADMIN_CONFIG_SERVER_MODE=False
+Environment=PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False
+Environment=PGADMIN_LISTEN_PORT=9876
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Restart=always
