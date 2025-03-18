@@ -1,0 +1,22 @@
+[Unit]
+Description=ai/ai.pod
+
+[Pod]
+PodName=ai
+
+# open-webui
+PublishPort=30000:8080
+# ollama
+PublishPort=11434:11434
+
+Network=ai.network
+Network=data-storage.network
+
+
+[Install]
+WantedBy=default.target
+
+[Service]
+Restart=always
+ExecStartPre=/bin/sleep 30
+ExecStartPost=%h/.config/containers/systemd/ai/check_containers.sh ai

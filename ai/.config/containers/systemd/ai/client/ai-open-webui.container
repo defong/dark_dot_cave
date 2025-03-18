@@ -1,0 +1,22 @@
+[Unit]
+Description=ai/client/ai-open-webui.container
+
+[Container]
+Pod=ai.pod
+Image=docker.io/dyrnq/open-webui
+ContainerName=ai-open-webui
+Environment=OLLAMA_BASE_URL=http://localhost:11434
+Environment=ENABLE_WEBSOCKET_SUPPORT=true
+Environment=WEBSOCKET_MANAGER=redis
+Environment=WEBSOCKET_REDIS_URL=redis://data-storage:6379/1
+Environment=WEBUI_AUTH=False
+Environment=DATABASE_URL=postgres://postgres:postgres@data-storage:5432/ai
+Environment=DATA_DIR=/app/backend/data
+Volume=%h/.container/ai/open-webui:/app/backend/data
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Restart=always
+ExecStartPre=%h/.config/containers/systemd/ai/create_directory.sh %h/.container/ai/open-webui

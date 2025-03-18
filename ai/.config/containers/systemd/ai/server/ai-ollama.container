@@ -1,0 +1,18 @@
+[Unit]
+Description=ai/server/ai-ollama.container
+
+[Container]
+Pod=ai.pod
+Image=docker.io/ollama/ollama:latest
+ContainerName=ai-ollama
+Volume=%h/.container/ai/ollama:/root/.ollama:Z
+DNS=8.8.8.8
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Restart=always
+ExecStartPre=%h/.config/containers/systemd/ai/create_directory.sh %h/.container/ai/ollama
+
+
