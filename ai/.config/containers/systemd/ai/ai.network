@@ -1,0 +1,11 @@
+[Unit]
+Description=ai/ai.network
+
+[Network]
+Internal=false
+Driver=slirp4netns
+
+[Install]
+WantedBy=default.target
+
+
