@@ -1,0 +1,13 @@
+[Unit]
+Description=data-storage/server/data-storage--valkey.container
+
+[Container]
+Pod=data-storage.pod
+Image=docker.io/valkey/valkey:latest
+ContainerName=data-storage-valkey
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Restart=always

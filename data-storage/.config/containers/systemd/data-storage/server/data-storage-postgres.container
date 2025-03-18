@@ -1,0 +1,17 @@
+[Unit]
+Description=data-storage/server/data-storage-postgres.container
+
+[Container]
+Pod=data-storage.pod
+Image=docker.io/postgres:latest
+ContainerName=data-storage-postges
+Environment=POSTGRES_USER=postgres
+Environment=POSTGRES_PASSWORD=postgres
+Volume=%h/.container/data-storage/postgres:/var/lib/postgresql/data:Z
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Restart=always
+ExecStartPre=%h/.config/containers/systemd/data-storage/create_directory.sh %h/.container/data-storage/postgres

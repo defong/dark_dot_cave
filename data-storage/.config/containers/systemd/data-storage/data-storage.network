@@ -1,0 +1,11 @@
+# podman network create --internal data-storage
+[Unit]
+Description=data-storage/data-storage.network
+
+[Network]
+Internal=false
+
+[Install]
+WantedBy=default.target
+
+
