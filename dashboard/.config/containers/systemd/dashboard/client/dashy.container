@@ -1,0 +1,15 @@
+[Unit]
+Description=dashboard/client/dashy.container
+
+[Container]
+Pod=dashboard.pod
+Image=docker.io/lissy93/dashy
+ContainerName=dashboard-dashy
+Volume=%h/.container/dashboard/dashy/config.yml:/user-data/conf.yml
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Restart=always
+ExecStartPre=%h/.config/containers/systemd/dashboard/dashy/setup.sh

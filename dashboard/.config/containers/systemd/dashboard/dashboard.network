@@ -1,0 +1,10 @@
+[Unit]
+Description=dashboard/dashboard.network
+
+[Network]
+Internal=false
+
+[Install]
+WantedBy=default.target
+
+
