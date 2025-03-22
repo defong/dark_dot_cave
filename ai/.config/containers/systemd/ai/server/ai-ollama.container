@@ -6,7 +6,7 @@ Pod=ai.pod
 Image=docker.io/ollama/ollama:latest
 ContainerName=ai-ollama
 Volume=%h/.container/ai/ollama:/root/.ollama:Z
-DNS=8.8.8.8
+PodmanArgs=--gpus all
 
 [Install]
 WantedBy=multi-user.target
